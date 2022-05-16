@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+<!--loading static-->
+{% load static %}
+<!-- rending content-->
+{% block content %}
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="card card-body">
+
+      <form method="POST" action="">
+        <!--security-->
+        {% csrf_token %}  
+          <!--display it dynamicly-->
+          {{ formset.management_form }}
+        <!--looping through the forms for multiple ordering from the user end-->
+        {% for form in formset %}
+          {{form}} 
+        <!--endform-->
+        {% endfor  %} <input class="btn btn-success" type="submit" name="Submit" />
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}
